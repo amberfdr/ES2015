@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>A</button>
+        <button>B</button>
+        <button>C</button>
+        <button>D</button>
+    </div>
+    <div id="panel">显示面板</div>
+    <!-- let 与 var的区别：
+    let能在循环体中产生块级作用域 -->
+    <script>
+        //例1：let产生块级作用域
+        var buttons = document.getElementsByTagName('button');
+        var panel = document.getElementById("panel");
+        for(let i = 0;i < buttons.length;++i){
+            buttons[i].addEventListener('click',function(evt){
+                panel.innerText = buttons[i].innerText;
+            },false)
+        }
+       //例2：let产生块级作用域
+        const arr1 = [];
+        for(var i = 0;i < 3;++i){
+            arr1.push(()=>i);
+        }
+        const arr2 = arr1.map((x)=>x());
+
+        const arr3 = [];
+        for(let i = 0;i < 3;++i){
+            arr3.push(()=>i);
+        }
+        const arr4 = arr3.map((x)=>x());
+
+        console.log('var---'+arr2.join());
+        console.log('let---'+arr4.join());
+    </script>
+</body>
+</html>
