@@ -1,7 +1,7 @@
 const obj = {
     hello:'hello everyone!',
     sayHi(){
-        const bar = () => this.hello;
+        const bar = () => this.hello;//上下文绑定到上层
         return bar;
     }
 }
